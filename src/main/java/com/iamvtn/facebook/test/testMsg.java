@@ -10,7 +10,7 @@ import com.iamvtn.facebook.model.FBMsgCommentPaging;
 import com.iamvtn.facebook.model.FBMsgComments;
 import com.restfb.types.NamedFacebookType;
 
-public class test {
+public class testMsg {
 	static GetMessage myInbox = new GetMessage();
 
 	public static void main(String[] args) {
