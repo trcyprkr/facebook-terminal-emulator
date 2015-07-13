@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Insert title here</title>
+	
+	<script>
+      	window.fbAsyncInit = function() {
+        	FB.init({
+          	appId      : '145634995501895',
+          	xfbml      : true,
+          	version    : 'v2.3'
+        	});
+     	 };
+
+      	(function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "http://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       	}(document, 'script', 'facebook-jssdk'));
+      
+      	function myFacebookLogin() {
+      		FB.api("/me/inbox",
+      			{
+  			    	access_token : 'CAACid3TfXWkBAGx4C8Aqx9Rs7gbyk78sakh1vJwCVRKZCfGAlqxbYixWeYYAZBZCm0D6FH4PwZAIjQoi3ZByuyTPU8mZACXkCRm8iHgt2T6sZBOcV1J1XjL6XKlVapMqlZA6N75BiwvFpn5QSglwCtcDcesPXsgJKZB889YE2cPmI0M1BEHvfk73T5UgGsO9d4osvpn02ZCn0Q9RoBMkUVlVYHupds2UAA7Fr8uRHpM4ZC8ZBQZDZD',
+  				},
+      			function (response) {
+      			   	if (response && !response.error) {
+      			   		console.log(response.data);
+      				}
+      			}
+      		);
+    	}
+    </script>
+    
+</head>
+<body>
+	<button onclick="myFacebookLogin()">Login with Facebook</button>
+</body>
+</html>
