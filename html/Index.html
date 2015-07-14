@@ -19,6 +19,7 @@
 	<script>
 			jQuery(document).ready(function($) {
 			$('body').terminal(function(command, term) {
+				var threadId;
 				if (command == 'help') {
 					term.echo(help);
 				} else if (command.indexOf('inbox') == 0) {
@@ -32,12 +33,18 @@
 						term.echo('Your inbox limit '+inboxId+' conversation');
 						meInbox(term, inboxId)
 					}
-					
-					
+
 				} else if (command.indexOf('thread') == 0) {
-					var threadId = command.substring(7);
+					threadId = command.substring(7);
 					term.echo('View Conversation detail (limit 25 messages)');
 					threadMessage(threadId, term);
+				} else if (command == 'next') {
+					term.echo('ID: '+threadId+' View next conversation detail (limit 25 messages) ');
+					nextThreadMessage(next, term);
+				}
+				else if (command == 'previous') {
+					term.echo('ID: '+threadId+' View previous conversation detail (limit 25 messages) ');
+					nextThreadMessage(previous, term);
 				} else if (command == 'newfeed') {
 					term.echo('New Feed is comming soon');
 				} else {

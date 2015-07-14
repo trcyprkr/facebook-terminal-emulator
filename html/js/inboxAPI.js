@@ -17,7 +17,7 @@ function meInbox(term, limit) {
 			}
 			term.echo('\n');
 		} else {
-			console.log(response.data);
+			console.log(response.error);
 		}
 	});
 }
@@ -30,11 +30,11 @@ function threadMessage(apiURI, term) {
 		if (response && !response.error) {
 			console.log(response);
 			var thread = response.comments.data;	
-			console.log('thread: ' + thread.length);
+			var paging = response.comments.paging;	
 			for (var k = 0; k < thread.length; k++) {
 				var comment = thread[k];
 				var name =  comment.from.name;
-				var message = comment.message
+				var message = comment.message;
 				if (message == null) {
 					message = 'Sticker!';
 				}
@@ -42,8 +42,39 @@ function threadMessage(apiURI, term) {
 				term.echo(conversation);
 			}
 			term.echo('\n');
-			threadMessage(thread.comments.paging.next);
-			threadMessage(thread.comments.paging.previous);
+			next = cutNextComment(paging.next);
+			previous = cutNextComment(paging.previous);
+			console.log(next);
+			console.log(previous);
+		} else {
+			console.log(response.error);
+		}
+	});
+}
+
+function nextThreadMessage(apiURI, term) {
+	console.log(apiURI);
+	FB.api(apiURI, {
+	}, function(response) {
+		if (response && !response.error) {
+			console.log(response);
+			var thread = response.data;	
+			var paging = response.paging;	
+			for (var k = 0; k < thread.length; k++) {
+				var comment = thread[k];
+				var name =  comment.from.name;
+				var message = comment.message;
+				if (message == null) {
+					message = 'Sticker!';
+				}
+				var conversation = name +' : ' +message;
+				term.echo(conversation);
+			}
+			term.echo('\n');
+			next = cutNextComment(paging.next);
+			previous = cutNextComment(paging.previous);
+			console.log(next);
+			console.log(previous);
 		} else {
 			console.log(response.error);
 		}
