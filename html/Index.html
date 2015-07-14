@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>Facebook Terminal Emulator</title>
+	<script type="text/javascript" src="js/initialization.js"></script>
+	<script type="text/javascript" src="js/properties.js"></script>
+	<script type="text/javascript" src="js/inboxAPI.js"></script>
+	<script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
+	<script src="lib/jquery-terminal/js/jquery.mousewheel-min.js"></script>
+	<script src="lib/jquery-terminal/js/jquery.terminal-min.js"></script>
+	<link href="lib/jquery-terminal/css/jquery.terminal.css" rel="stylesheet" />
+</head>
+<body>
+	<!-- 	<button onclick="meInbox()">Show Chat Box</button> -->
+	<div id="fb-root"></div>
+	<div id="fb_messages"></div>
+
+	<script>
+			jQuery(document).ready(function($) {
+			$('body').terminal(function(command, term) {
+				if (command == 'help') {
+					term.echo(help);
+				} else if (command.indexOf('inbox') == 0) {
+					//Show all inbox
+					var inboxId = command.substring(6);
+					
+					if (inboxId == null || inboxId == '') {
+						term.echo('Your inbox limit 25 conversation');
+						meInbox(term, 25)
+					} else {
+						term.echo('Your inbox limit '+inboxId+' conversation');
+						meInbox(term, inboxId)
+					}
+					
+					
+				} else if (command.indexOf('thread') == 0) {
+					var threadId = command.substring(7);
+					term.echo('View Conversation detail (limit 25 messages)');
+					threadMessage(threadId, term);
+				} else if (command == 'newfeed') {
+					term.echo('New Feed is comming soon');
+				} else {
+					term.echo("Command not found (available commands are inbox, thread, newfeed, clear)");
+				}
+			}, {
+				prompt : 'iamvtn> $ ',
+				name : 'iamvtn',
+				greetings : introduce,
+				onBlur : function() {
+					// prevent loosing focus
+					return false;
+				}
+			});
+		});
+	</script>
+</body>
+</html>
