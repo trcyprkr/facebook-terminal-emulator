@@ -8,3 +8,6 @@
 <br/ >Type clear if you wanna clear your terminal
 
 Develop by Thanh Nam (https://vn.linkedin.com/in/namthanhvu)
+
+#Demo
+<br/>Go to the emulator running in web browser : http://batnam.github.io/facebook-api/html/Index.html
