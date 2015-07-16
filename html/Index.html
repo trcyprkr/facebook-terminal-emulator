@@ -3,9 +3,12 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Facebook Terminal Emulator</title>
-	<script type="text/javascript" src="js/initialization.js"></script>
 	<script type="text/javascript" src="js/properties.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/initialization.js"></script>
 	<script type="text/javascript" src="js/inboxAPI.js"></script>
+	<script type="text/javascript" src="js/loginAPI.js"></script>
+	<script type="text/javascript" src="js/homeAPI.js"></script>
 	<script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
 	<script src="lib/jquery-terminal/js/jquery.mousewheel-min.js"></script>
 	<script src="lib/jquery-terminal/js/jquery.terminal-min.js"></script>
@@ -22,6 +25,12 @@
 				var threadId;
 				if (command == 'help') {
 					term.echo(help);
+				} else if (command == 'home') {
+					term.echo('Your new feed');
+					meHome(term);
+				} else if (command == 'login') {
+					term.echo('Check login status');
+					fbLogin(term);
 				} else if (command.indexOf('inbox') == 0) {
 					//Show all inbox
 					var inboxId = command.substring(6);

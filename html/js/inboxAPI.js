@@ -17,7 +17,7 @@ function meInbox(term, limit) {
 			}
 			term.echo('\n');
 		} else {
-			console.log(response.error);
+			errorLogs(term, response);
 		}
 	});
 }
@@ -47,7 +47,7 @@ function threadMessage(apiURI, term) {
 			console.log(next);
 			console.log(previous);
 		} else {
-			console.log(response.error);
+			errorLogs(term, response);
 		}
 	});
 }
@@ -73,13 +73,13 @@ function nextThreadMessage(apiURI, term) {
 			term.echo('\n');
 			next = cutNextComment(paging.next);
 			previous = cutNextComment(paging.previous);
-			console.log(next);
-			console.log(previous);
 		} else {
-			console.log(response.error);
+			errorLogs(term, response);
 		}
 	});
 }
+
+
 
 function cutNextComment(url) {
 	var uri = url.substring(32);
