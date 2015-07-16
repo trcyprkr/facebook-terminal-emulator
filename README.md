@@ -1,5 +1,5 @@
 # Facebook Terminal Emulator
-<br/ >A command line interface (CLI) for facebook  written in javascript(jquerry). 
+A command line interface (CLI) for facebook  written in javascript(jquerry). 
 <br/ >You can facebook on your terminal.
 <br/ >Type 'login' first to get your permission
 <br/ >Type 'inbox' to see your messages and type 'next msg' or 'previous msg' to read more messages
@@ -10,4 +10,4 @@
 Develop by Thanh Nam (https://vn.linkedin.com/in/namthanhvu)
 
 #Demo
-<br/>Go to the emulator running in web browser : http://batnam.github.io/facebook-api/html/Index.html
+Go to the emulator running in web browser : http://batnam.github.io/facebook-api/html/Index.html
