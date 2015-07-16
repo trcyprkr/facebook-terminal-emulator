@@ -42,8 +42,8 @@ function threadMessage(apiURI, term) {
 				term.echo(conversation);
 			}
 			term.echo('\n');
-			next = cutNextComment(paging.next);
-			previous = cutNextComment(paging.previous);
+			next = cutNextURL(paging.next);
+			previous = cutNextURL(paging.previous);
 			console.log(next);
 			console.log(previous);
 		} else {
@@ -71,17 +71,11 @@ function nextThreadMessage(apiURI, term) {
 				term.echo(conversation);
 			}
 			term.echo('\n');
-			next = cutNextComment(paging.next);
-			previous = cutNextComment(paging.previous);
+			next = cutNextURL(paging.next);
+			previous = cutNextURL(paging.previous);
 		} else {
 			errorLogs(term, response);
 		}
 	});
 }
 
-
-
-function cutNextComment(url) {
-	var uri = url.substring(32);
-	return uri;
-}

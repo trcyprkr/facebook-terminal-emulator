@@ -19,44 +19,71 @@
 	<div id="fb_messages"></div>
 
 	<script>
-			jQuery(document).ready(function($) {
+		jQuery(document).ready(function($) {
 			$('body').terminal(function(command, term) {
 				var threadId;
+				var result;
 				if (command == 'help') {
 					term.echo(help);
-				} else if (command == 'home') {
-					term.echo('Your new feed');
-					meHome(term);
 				} else if (command == 'login') {
-					term.echo('Check login status');
+					term.echo('Checking login status ...');
 					fbLogin(term);
+				} else if (command == 'home') {
+					term.echo('Loading your new feed ...');
+					result = meHome(term);
+				} else if (command == 'next feed') {
+					if (nextFeed == null || nextFeed == '') {
+						term.echo("Type 'home' to load your new feed first");
+					} else {
+						term.echo('Loading your new feed ...');
+						result = showNextFeed(term, nextFeed);
+						if (result == true) {
+							pageFeed = pageFeed + 1;
+							term.echo('Page ' + pageFeed);
+						}
+					}
+				} else if (command == 'previous feed') {
+					if (previousFeed == null || previousFeed == '') {
+						term.echo("Type 'next feed' to load your next feed first");
+					} else {
+						term.echo('Loading your new feed ...');
+						result = showNextFeed(term, previousFeed);
+						if (result == true) {
+							pageFeed = pageFeed - 1;
+							term.echo('Page ' + pageFeed);
+						}
+					}
 				} else if (command.indexOf('inbox') == 0) {
 					//Show all inbox
 					var inboxId = command.substring(6);
-					
 					if (inboxId == null || inboxId == '') {
 						term.echo('Your inbox limit 25 conversation');
 						meInbox(term, 25)
 					} else {
-						term.echo('Your inbox limit '+inboxId+' conversation');
+						term.echo('Your inbox limit ' + inboxId + ' conversation');
 						meInbox(term, inboxId)
 					}
-
 				} else if (command.indexOf('thread') == 0) {
 					threadId = command.substring(7);
 					term.echo('View Conversation detail (limit 25 messages)');
 					threadMessage(threadId, term);
-				} else if (command == 'next') {
-					term.echo('ID: '+threadId+' View next conversation detail (limit 25 messages) ');
-					nextThreadMessage(next, term);
+				} else if (command == 'next msg') {
+					if (next == null || next == '') {
+						term.echo("Please type 'thread#[ID MESSAGE]' to load your message first");
+					} else {
+						term.echo('View next conversation detail (limit 25 messages) ');
+						nextThreadMessage(next, term);
+					}
 				}
-				else if (command == 'previous') {
-					term.echo('ID: '+threadId+' View previous conversation detail (limit 25 messages) ');
-					nextThreadMessage(previous, term);
-				} else if (command == 'newfeed') {
-					term.echo('New Feed is comming soon');
+				else if (command == 'previous msg') {
+					if (next == null || next == '') {
+						term.echo("Please type 'next msg' to load your next message first");
+					} else {
+						term.echo('View previous conversation detail (limit 25 messages) ');
+						nextThreadMessage(previous, term);
+					}
 				} else {
-					term.echo("Command not found (available commands are inbox, thread, newfeed, clear)");
+					term.echo("Command not found type 'help' to read more detail");
 				}
 			}, {
 				prompt : 'batnam> $ ',
