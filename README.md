@@ -1,4 +1,4 @@
-# facebook-api
+# Facebook Terminal Emulator
 A command line interface (CLI) for facebook  written in javascript(jquerry). 
 You can facebook on your terminal.
 Type 'login' first to get your permission
