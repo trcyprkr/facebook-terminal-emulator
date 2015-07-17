@@ -33,7 +33,6 @@ function showNextFeed(term, nextFeed) {
 
 function showNewFeed(response, term) {
 	if (response && !response.error) {
-		console.log(response);
 		term.echo('Your new feed: ');
 		for (var i = 0; i < response.data.length; i++) {
 			var name = response.data[i].from.name;

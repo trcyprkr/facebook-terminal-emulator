@@ -5,7 +5,6 @@ function meInbox(term, limit) {
 		access_token : fb_access_token,
 	}, function(response) {
 		if (response && !response.error) {
-			console.log(response.data);
 			for (var i = 0; i < response.data.length; i++) {
 				var thread = response.data[i];
 				var name = 'ID: ' + thread.id + ' - unread: ' + thread.unread + ' - Memember: ';
@@ -22,7 +21,6 @@ function meInbox(term, limit) {
 }
 
 function threadMessage(apiURI, term) {
-	console.log(apiURI);
 	FB.api(apiURI, {
 		access_token : fb_access_token,
 	}, function(response) {
@@ -52,7 +50,6 @@ function threadMessage(apiURI, term) {
 }
 
 function nextThreadMessage(apiURI, term) {
-	console.log(apiURI);
 	FB.api(apiURI, {
 	}, function(response) {
 		if (response && !response.error) {
