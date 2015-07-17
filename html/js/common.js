@@ -1,11 +1,11 @@
 function errorLogs(term, response) {
 	console.log(response.error);
-	term.echo('Error !!! ' );
-	term.echo('Error code: ' + response.error.code);
-	term.echo('Error message: ' + response.error.message);
-	term.echo('Error type: ' + response.error.type);
+	term.error('Error !!! ' );
+	term.error('Error code: ' + response.error.code);
+	term.error('Error message: ' + response.error.message);
+	term.error('Error type: ' + response.error.type);
 	if (response.error.code == '2500') {
-		term.echo("*** Please login first (type 'login') ***");
+		term.error("*** Please login first (type 'login') ***");
 	}
 };
 

@@ -8,14 +8,13 @@ function meInbox(term, limit) {
 			console.log(response.data);
 			for (var i = 0; i < response.data.length; i++) {
 				var thread = response.data[i];
-				var name = 'ID: ' + thread.id + ' Memember: ';
+				var name = 'ID: ' + thread.id + ' - unread: ' + thread.unread + ' - Memember: ';
 				for (var j = 0; j < thread.to.data.length; j++) {
 					var to = thread.to.data[j];
 					name = name + to.name + '|';
 				}
 				term.echo(name);
 			}
-			term.echo('\n');
 		} else {
 			errorLogs(term, response);
 		}
