@@ -10,7 +10,7 @@ var help = "\tType 'login' first to get your permission\n";
 help = help + "\tType 'inbox' to see your messages and type 'next msg' or 'previous msg' to read more messages\n";
 help = help + "\tType 'thread#[MESSAGE_ID]' to see your message detail, type 'next msg' or 'previous msg' to read more messages\n"
 help = help + "\tType home to see your new feed and type 'next feed' or 'previous feed' read more feeds\n";
-help = help + "\tType clear if you wanna clear your terminal\n";
+help = help + "\tType 'clear' if you wanna clear your terminal\n";
 
 var commandNotFound = "";
 

@@ -25,7 +25,11 @@
 				var threadId;
 				var result;
 				if (command == 'help') {
-					term.echo(help);
+					term.echo(help, {
+						finalize: function(div) {
+							div.css("color", "#009F6B");
+						}
+					});
 				} else if (command == 'login') {
 					term.echo('Checking login status ...');
 					fbLogin(term);
