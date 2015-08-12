@@ -11,4 +11,4 @@ A command line interface (CLI) for facebook  written in javascript (jquerry).
 Develop by Thanh Nam (https://vn.linkedin.com/in/namthanhvu)
 
 #Demo
-Go to the emulator running in web browser : http://batnam.github.io/facebook-api/html/Index.html
+Go to the emulator running in web browser : http://batnam.github.io/facebook-terminal-emulator/html/Index.html
