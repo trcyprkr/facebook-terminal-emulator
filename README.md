@@ -8,7 +8,5 @@ A command line interface (CLI) for facebook  written in javascript (jquerry).
 <br/ >Type home to see your new feed and type 'next feed' or 'previous feed' read more feeds
 <br/ >Type clear if you wanna clear your terminal
 
-Develop by Thanh Nam (https://vn.linkedin.com/in/namthanhvu)
-
 #Demo
 Go to the emulator running in web browser : http://batnam.github.io/facebook-terminal-emulator/html/Index.html
