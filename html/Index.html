@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="js/inboxAPI.js"></script>
 	<script type="text/javascript" src="js/loginAPI.js"></script>
 	<script type="text/javascript" src="js/homeAPI.js"></script>
+	<script type="text/javascript" src="js/notifyAPI.js"></script>
 	<script type="text/javascript" src="lib/jquery-2.1.4.min.js"></script>
 	<script src="lib/jquery-terminal/js/jquery.mousewheel-min.js"></script>
 	<script src="lib/jquery-terminal/js/jquery.terminal-min.js"></script>
@@ -87,7 +88,24 @@
 						term.echo('View previous conversation detail (limit 25 messages) ');
 						nextThreadMessage(previous, term);
 					}
-				} else {
+				}
+				else if (command == 'notify') {
+					getNotifications(term);
+				} else if (command == 'next notify') {
+					if (nextNotiy  != null || nextNotiy != '') {
+						getNextNotifications(term, nextNotiy)
+					} else {
+						term.echo("Please type 'notify' to load your notify first");
+					}
+				} else if (command == 'previous notify') {
+					if (previousNotify  != null || previousNotify != '') {
+						getNextNotifications(term, previousNotify)
+					} else {
+						term.echo("Please type 'next notify' to load your next notify first");
+					}
+				} 	
+				
+				else {
 					term.echo("Command not found type 'help' to read more detail");
 				}
 			}, {
