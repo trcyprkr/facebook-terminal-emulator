@@ -21,6 +21,9 @@ var previousFeed;
 var nextFeed;
 var pageFeed = 0;
 
+var nextNotiy;
+var previousNotify;
+
 var fbAppId = '178633945603433';
 var fbAppSecret = 'ca9620447a10f406634665a6d9856da7';
 var fbChannelUrl = 'http://iamvtn.com/facebook-api/html/';
