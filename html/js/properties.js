@@ -9,7 +9,8 @@ introduce = introduce + "For more details, check here https://github.com/batnam/
 var help = "\tType 'login' first to get your permission\n";
 help = help + "\tType 'inbox' to see your messages and type 'next msg' or 'previous msg' to read more messages\n";
 help = help + "\tType 'thread#[MESSAGE_ID]' to see your message detail, type 'next msg' or 'previous msg' to read more messages\n"
-help = help + "\tType home to see your new feed and type 'next feed' or 'previous feed' read more feeds\n";
+help = help + "\tType 'home' to see your new feed and type 'next feed' or 'previous feed' read more feeds\n";
+help = help + "\tType 'notify' to see your notifications\n";
 help = help + "\tType 'clear' if you wanna clear your terminal\n";
 
 var commandNotFound = "";
@@ -20,6 +21,9 @@ var previous;
 var previousFeed;
 var nextFeed;
 var pageFeed = 0;
+
+var nextNotiy;
+var previousNotify;
 
 var fbAppId = '178633945603433';
 var fbAppSecret = 'ca9620447a10f406634665a6d9856da7';
